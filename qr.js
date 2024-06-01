@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
 
 	
 	function generate(str) {
-		var imageUrl = 'https://barcodeapi.org/api/' + getSelectedCode() + '/' + decodeURIComponent(str);
+		var imageUrl = 'http://barcodeapi.org/api/' + getSelectedCode() + '/' + decodeURIComponent(str);
 		loadImageAsDataURL(imageUrl, function(dataUrl) {
     			qr.src = dataUrl;
 		});
