@@ -1,0 +1,48 @@
+#qr {
+    max-width: 300px;
+    max-height: 140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+#text {
+    margin-top: 2%;
+    width: 90%;
+}
+
+#bottom-screen {
+    text-align: center;
+}
+label {
+    text-align: left;
+    white-space: nowrap;
+}
+
+#btn-gen {
+    margin-top: 2%;
+    height: 10%;
+    width: 45%;
+    border: 2px green solid;
+    border-radius: 5px;
+    background-color: limegreen;
+}
+
+#btn-gen:active {
+    background: lime;
+}
+
+label{
+  font-size: 17px;
+  display: inline-block;
+  width: 120px;
+}
+
+input[name="codeSelectRadio"] {
+  transform: scale(1.2);
+}
+
+h3{
+  text-align: center;
+}

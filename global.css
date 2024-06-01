@@ -1,0 +1,63 @@
+body {
+    font-family: "Liberation Sans", sans-serif;
+    padding: 0;
+    margin-left: 0;
+    margin-top: 10px;
+    background: black;
+}
+
+img, canvas { /* Disable antialiasing to match the 3DS which doesn't have antialiasing */
+    image-rendering: pixelated;
+}
+
+article {
+    display: block;
+}
+
+p, h4 {
+    font-size: 14px;
+}
+
+#screens {
+    display: inline-block;
+}
+
+#top-screen {
+    background-color: white;
+    width: 400px;
+    height: 217px;
+    overflow: hidden;
+}
+
+#bottom-screen {
+    background-color: white;
+    width: 320px;
+    height: 240px;
+    margin-left: 39.4667px;
+    overflow: hidden;
+}
+
+.dual-screen {
+    position: absolute;
+    margin-left: 39.4667px;
+    height: 457px;
+    width: 321px;
+}
+
+/* Use this class when overlaying absolute elements such as .dual-screen */
+.abs-overlay {
+    position: relative;
+    background: none !important; /* Re-use !important to add background */
+}
+
+.note {
+    opacity: 0.65;
+    font-size: 90%;
+}
+
+.animated > :not(.vis) {
+	display: none;
+}
+.animated > .vis {
+	display: block;
+}
