@@ -12,41 +12,28 @@ window.addEventListener('load', function() {
 	}
 
 	function loadImageAsDataURL(url, callback) { // 3DS refuses to wait for api when just setting the src, so I need to request it through JS
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', url, true);
-		//xhr.setRequestHeader('Content-Type', 'image/png');
-		xhr.responseType = 'blob';
+    		var xhr = new XMLHttpRequest();
+    		xhr.open('GET', url, true);
+    		xhr.responseType = 'blob';
 
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === 4) {
-				if (xhr.status !== 200) {
-					alert(xhr.status);
-					callback('./img/ERROR.png');
-					return;
-				}
-				var reader = new FileReader();
-				reader.onloadend = function() {
-					var base64data = reader.result;
-					callback(base64data);
-				}
-				reader.readAsDataURL(xhr.response);
-			}
-		}
-		xhr.onload = function() {
-			//alert(typeof(URL.createObjectURL));
-			//alert(this.response);
-			//var reader = new Image();
-			//reader.onload = function() {
-			//	alert(this.src);
-			//};
-			//callback(URL.createObjectURL(this.response));
-		};
+    		xhr.onload = function() {
+        		if (this.status === 200) {
+            			var reader = new FileReader();
+            			reader.onloadend = function() {
+                			var base64data = reader.result;
+                			callback(base64data);
+            			};
+            			reader.readAsDataURL(this.response);
+        		} else {
+            			callback('./img/ERROR.png'); // Return the error image (likely the code type does not support the input)
+        		}
+    		};
 
-		xhr.onerror = function(e) {
-			//alert('Error');
-		};
+    		xhr.onerror = function() {
+        		console.error("Request failed");
+    		};
 
-		xhr.send();
+   		xhr.send();
 	}
 
 	
